@@ -1,0 +1,128 @@
+# 1. Check name capitalizing
+
+
+def first_capital(name):
+    if 0 < len(name) < 1000:
+        return name.title()
+
+
+print(first_capital('alison heck'))
+
+
+# 2. Character frequency
+
+
+def character_frequency(string):
+    letter_dict = {}
+    for letter in string:
+        if letter not in letter_dict:
+            letter_dict[letter] = 1
+        else:
+            letter_dict[letter] += 1
+    return letter_dict
+
+
+print(character_frequency('google.com'))
+
+
+# 3. A string made from the first 2 and the last 2 chars from a given string
+
+
+def first_last(string):
+    if len(string) < 2:
+        return 'Empty String '
+    first_last_2 = string[:2] + string[-2:]
+    return first_last_2
+
+
+print(first_last('w3resource'))
+
+
+# 4. Count the number of strings
+
+
+def count_strings(sample_list):
+    count = 0
+    for el in sample_list:
+        if len(el) >= 2 and el[0] == el[-1]:
+            count += 1
+    return count
+
+
+print(count_strings(['abc', 'xyz', 'aba', '1221']))
+
+
+# 5. Sets
+
+
+def find_subset(*args):
+    for el in args[2]:
+        if el in args[0] and el in args[1]:
+            return True
+        else:
+            return False
+
+
+print(find_subset({1, 2}, {2, 3}, {2}))
+
+# 6. Generation
+
+
+def n_generation(n):
+    square_dict = {}
+    for number in range(1, n+1):
+        if number not in square_dict:
+            square_dict[number] = number * number
+    return square_dict
+
+
+print(n_generation(5))
+
+# 7. Merge 2 dictionaries
+
+
+def merge_dicts(dict_1, dict_2):
+    new_dict = dict_1.copy()
+    new_dict.update(dict_2)
+    return new_dict
+
+
+print(merge_dicts({'you': 'stupid'}, {'me': 'clever'}))
+
+# 8. The 3 highest values
+
+
+def the_3(some_dict):
+    list_values = sorted(list(some_dict.values()))[-3:]
+    return list_values
+
+
+print(the_3({'D': 1, 'B': 2, 'B': 3, 'E': 4, 'A': 5}))
+
+
+# 9. Removing duplicates from a list
+
+def duplicates_list(some_list):
+    new_list = []
+    for el in some_list:
+        if el not in new_list:
+            new_list.append(el)
+    return new_list
+
+
+print(duplicates_list([1, 1, 1, 2, 3, 7, 7, 7]))
+
+# 10. The difference between 2 list
+
+
+def difference(list_1, list_2):
+    dif_list = []
+    for el in list_1:
+        if el in list_2:
+            list_2.append(el)
+        else:
+            dif_list.append(el)
+    return dif_list
+
+
+print(difference([1, 2, 3], [1]))
